@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=1280px, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>
     Requiem Test Map
   </title>
@@ -24,7 +24,7 @@
     var map = L.map('map', {
     crs: L.CRS.Simple
     });
-    var bounds = [[0,0], [1031,1280]];
+    var bounds = [[0,0], [929,1193]];
     var image = L.imageOverlay('req-perfect.jpg', bounds).addTo(map);
     map.fitBounds(bounds);
   </script>
