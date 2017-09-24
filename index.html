@@ -13,6 +13,7 @@
  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
    integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
    crossorigin=""></script>
+
   <style type="text/css">
     #map { height : 800px; }
   </style>
@@ -21,12 +22,34 @@
   <h1>The World of Requiem</h1>
   <div id="map"></div>
   <script>
-    var map = L.map('map', {
+  var map = L.map('map', {
+    maxZoom: 20,
+    minZoom: 20,
     crs: L.CRS.Simple
-    });
-    var bounds = [[0,0], [929,1193]];
-    var image = L.imageOverlay('req-perfect.jpg', bounds).addTo(map);
-    map.fitBounds(bounds);
+  }).setView([200, 200], 20);
+
+  var southWest = map.unproject([0, 6145], map.getMaxZoom());
+  var northEast = map.unproject([1024, 0], map.getMaxZoom());
+  map.setMaxBounds(new L.LatLngBounds(southWest, northEast));
+
+  L.tileLayer('image_tiles/uo_tiles_{x}_{y}.jpg', {
+  attribution: 'Map provided by Requiem & Azure',
+  }).addTo(map);
+
+
+
+    var lat, lng;
+    var popup = L.popup();
+
+    function onMapClick(e) {
+      popup
+           .setLatLng(e.latlng)
+           .setContent(layer.getLatLng().lat.toFixed(3) + ", " +layer.getLatLng().lng.toFixed(3))
+           .openOn(map);
+     }
+
+     map.on('click', onMapClick);
+
   </script>
   </body>
   </html>
