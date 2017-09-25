@@ -8,53 +8,19 @@
   </title>
   <!--Leaflet Libraries Import-->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
- integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
- crossorigin=""/>
- <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+  integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
    integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
    crossorigin=""></script>
   <style type="text/css">
     #map { height : 800px; }
   </style>
-  </head>
+</head>
   <body>
-  <div id="map"></div>
-  <script>
-    var map = L.map('map', {
-    crs: L.CRS.Simple,
-    minZoom: -2.6,
-    maxZoom: 1
-    });
-    var bounds = [[0,0], [4096,4776]];
-    var image = L.imageOverlay('ReqMap.png', bounds).addTo(map);
-    map.fitBounds(bounds);
-    var popup = L.popup();
-    function onMapClick(e) {
-      popup
-        .setLatLng(e.latlng)
-        .setContent(e.latlng.toString())
-        .openOn(map);
-    }
-    map.on('click', onMapClick);
-    <!--Put down ye markers!-->
-    var ftPraeM = L.marker([966.5, 557]).addTo(map);
-    ftPraeM.bindPopup("<b>Fort Praesidium</b><br><a target='_blank' href='http://www.13thrones.com/wordpress/?page_id=20'>More Info</a>.").openPopup();
-    map.attributionControl.addAttribution('v1 Created by Azure for <a target="_blank" href="http://www.13thrones.com/wordpress/", class="your_class">Requiem</a>');
-    L.Control.Watermark = L.Control.extend({
-    onAdd: function(map) {
-        var img = L.DomUtil.create('img');
-        img.src = 'sitelogo2.png';
-        img.style.width = '100px';
-        return img;
-    },
-    onRemove: function(map) {
-        // Nothing to do here
-    }
-    });
-    L.control.watermark = function(opts) {
-    return new L.Control.Watermark(opts);
-    }
-    L.control.watermark({ position: 'bottomleft' }).addTo(map);
-  </script>
+    <div id="map"></div>
+    <script src=makeMap.js></script>
+    <script src=markers.js></script>
+    <script src=actions.js></script>
   </body>
-  </html>
+</html>
