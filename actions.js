@@ -17,3 +17,10 @@ River.bindPopup("<b>Riverside</b>").openPopup();
 Sylve.bindPopup("<b>Sylve Tenebrae</b>").openPopup();
 rpc.bindPopup("<b>Rumbling Pass Checkpoint</b>").openPopup();
 Aiwm.bindPopup("<b>Aiwella Monastery</b><br><a target='_blank' href='http://www.13thrones.com/wordpress/?page_id=153'>More Info</a>.").openPopup();
+c01.bindPopup("<b>Case #1343-TFC-01</b>").openPopup();
+c02.bindPopup("<b>Case #1343-TFC-02</b>").openPopup();
+
+map.on('popupopen', function(centerMarker) {
+        var cM = map.project(centerMarker.popup._latlng);
+        map.setView(map.unproject(cM),1, {animate: true});
+});

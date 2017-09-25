@@ -1,12 +1,13 @@
 var map = L.map('map', {
 crs: L.CRS.Simple,
-minZoom: -2.6,
-maxZoom: 1
+minZoom: -3,
+maxZoom: 1,
+zoomDelta: 0.25
 });
 var bounds = [[0,0], [4096,4776]];
-var image = L.imageOverlay('ReqMap.png', bounds).addTo(map);
 map.fitBounds(bounds);
-map.attributionControl.addAttribution('v1 Created by Azure for <a target="_blank" href="http://www.13thrones.com/wordpress/", class="your_class">Requiem</a>');
+var image = L.imageOverlay('ReqMap.png', bounds).addTo(map);
+map.attributionControl.addAttribution('The First Coast v1 Created by Azure for <a target="_blank" href="http://www.13thrones.com/wordpress/", class="your_class">Requiem</a>');
 L.Control.Watermark = L.Control.extend({
 onAdd: function(map) {
     var img = L.DomUtil.create('img');
