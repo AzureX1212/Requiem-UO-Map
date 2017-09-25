@@ -4,11 +4,11 @@ A simple map designed to show players the diverse map of Requiem.
 
 ## Roadmap:
 
-1. Create a basic map file. _9/23/17_ 
+1. Create a basic map file. _9/23/17_
 
-2. Use tiles to lessen resource load on the map itself.
+2. Use tiles to lessen resource load on the map itself. _Dropped due to issues_
 
-3. Add in markers detailing Point's of Interests (POI) for players and add them to a separate layer.
+3. Add in markers detailing Point's of Interests (POI) for players and add them to a separate layer. _9-25-17_
 
 4. Create zones indicating the provinces and areas of the map and add them to their own map layer.
 
