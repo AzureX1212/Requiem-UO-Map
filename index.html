@@ -18,15 +18,40 @@
   </style>
   </head>
   <body>
-  <h1>The World of Requiem</h1>
   <div id="map"></div>
   <script>
     var map = L.map('map', {
-    crs: L.CRS.Simple
+    crs: L.CRS.Simple,
+    minZoom: -2.6,
+    maxZoom: 1
     });
     var bounds = [[0,0], [4096,4776]];
-    var image = L.imageOverlay('req-perfect.png', bounds).addTo(map);
+    var image = L.imageOverlay('ReqMap.png', bounds).addTo(map);
     map.fitBounds(bounds);
+    var popup = L.popup();
+    function onMapClick(e) {
+      popup
+        .setLatLng(e.latlng)
+        .setContent(e.latlng.toString())
+        .openOn(map);
+    }
+    map.on('click', onMapClick);
+    map.attributionControl.addAttribution('v1 Created by Azure for <a href="http://www.13thrones.com/wordpress/", class="your_class">Requiem</a>');
+    L.Control.Watermark = L.Control.extend({
+    onAdd: function(map) {
+        var img = L.DomUtil.create('img');
+        img.src = 'sitelogo2.png';
+        img.style.width = '100px';
+        return img;
+    },
+    onRemove: function(map) {
+        // Nothing to do here
+    }
+    });
+    L.control.watermark = function(opts) {
+    return new L.Control.Watermark(opts);
+    }
+    L.control.watermark({ position: 'bottomleft' }).addTo(map);
   </script>
   </body>
   </html>
