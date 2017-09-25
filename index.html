@@ -23,32 +23,24 @@
   <div id="map"></div>
   <script>
   var map = L.map('map', {
+    crs: L.CRS.Simple,
     maxZoom: 20,
-    minZoom: 20,
-    crs: L.CRS.Simple
-  }).setView([200, 200], 20);
+    minZoom: 17
+  }).setView([0, 0], 17);
 
-  var southWest = map.unproject([0, 6145], map.getMaxZoom());
-  var northEast = map.unproject([1024, 0], map.getMaxZoom());
-  map.setMaxBounds(new L.LatLngBounds(southWest, northEast));
+  var southWest = map.unproject([0, 4774], map.getMaxZoom());
+  var northEast = map.unproject([4098, 0], map.getMaxZoom());
+<!--map.setMaxBounds(new L.LatLngBounds(southWest, northEast));-->
 
-  L.tileLayer('image_tiles/uo_tiles_{x}_{y}.jpg', {
-  attribution: 'Map provided by Requiem & Azure',
+  var mapTiles =  L.tileLayer('image_tiles/{z}/uo_tiles_{x}_{y}.png', {
+    attribution: 'Map data &copy; ???',
   }).addTo(map);
 
-
-
-    var lat, lng;
     var popup = L.popup();
 
-    function onMapClick(e) {
-      popup
-           .setLatLng(e.latlng)
-           .setContent(layer.getLatLng().lat.toFixed(3) + ", " +layer.getLatLng().lng.toFixed(3))
-           .openOn(map);
-     }
-
-     map.on('click', onMapClick);
+    map.on('click', function(e) {
+        alert("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
+    });
 
   </script>
   </body>
