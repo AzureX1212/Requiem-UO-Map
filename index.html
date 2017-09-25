@@ -36,6 +36,9 @@
         .openOn(map);
     }
     map.on('click', onMapClick);
+    <!--Put down ye markers!-->
+    var ftPraeM = L.marker([966.5, 557]).addTo(map);
+    ftPraeM.bindPopup("<b>Fort Praesidium</b><br><a href='http://www.13thrones.com/wordpress/?page_id=20'>More Info</a>.").openPopup();
     map.attributionControl.addAttribution('v1 Created by Azure for <a href="http://www.13thrones.com/wordpress/", class="your_class">Requiem</a>');
     L.Control.Watermark = L.Control.extend({
     onAdd: function(map) {
