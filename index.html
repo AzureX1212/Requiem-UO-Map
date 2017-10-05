@@ -14,6 +14,7 @@
    integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
    crossorigin=""></script>
   <style type="text/css">
+  <!--This is a fix to get the map working on mobile displays-->
     body {
     padding: 0;
     margin: 0;
@@ -26,7 +27,6 @@
 </head>
   <body>
     <div id="map"></div>
-
     <script>
         var map = L.map('map', {
         crs: L.CRS.Simple,

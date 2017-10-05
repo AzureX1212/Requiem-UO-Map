@@ -6,7 +6,7 @@ A simple map designed to show players the diverse map of Requiem.
 
 1. Create a basic map file. _9/23/17_
 
-2. Use tiles to lessen resource load on the map itself. _Dropped due to issues_
+2. Use tiles to lessen resource load on the map itself. _Dropped due to multiple issues_
 
 3. Add in markers detailing Point's of Interests (POI) for players and add them to a separate layer. _9-25-17_
 
